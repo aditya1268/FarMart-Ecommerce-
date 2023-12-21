@@ -1,0 +1,92 @@
+{% extends "req.html" %}
+{%block start%}
+{% csrf_token %}
+
+<div class ="container mt-5" >
+    {{Store_username.store_username}}
+    
+        <form class="col-6 mx-auto card p-3 shadow-lg" method ="post" enctype="multipart/form-data">
+            {% csrf_token %}
+          <h2>Add Veges / fruites </h2>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Fruit  name</label>
+              <input name="vege_name"required type="text" class="form-control" >
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Vegetable description </label>
+              <textarea name="vege_descr" required class='form-control'></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Available Quantity </label>
+              <textarea name="vege_count" type="number" required class='form-control'></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Selling Price per Kilos </label>
+              <textarea name="vege_price" type="number" required class='form-control'></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Vegetable image </label>
+                <input name="vege_imag" type="file" class="form-control" >
+              
+            </div>
+            <div class="mb-3">
+              <input type="radio"class="form-check-input" id="vegetables" name="category" value="vegetables"checked>
+        <label for="vegetables"class="form-check-label">Vegetables</label><br>
+  
+        <input type="radio" class="form-check-input"id="fruits" name="category" value="fruits"checked>
+        <label for="fruits"class="form-check-label">Fruits</label><br>
+  
+        <input type="radio" class="form-check-input"id="flowers" name="category" value="flowers"checked>
+        <label for="flowers"class="form-check-label">Flowers</label><br>
+  
+        <input type="radio" class="form-check-input"id="home_products" name="category" value="home_products" checked>
+        <label for="home_products" class="form-check-label">Home Products</label><br>
+  
+            </div>
+            
+            <button type="submit" class="btn btn-success">Add Products </button>
+          </form>
+    </div>
+
+
+
+    
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">SR. No</th>
+      <th scope="col">Vegetable NAME</th>
+      <th scope="col">Vegetable DESCRI</th>
+      <th scope="col">Type</th>
+      <th scope="col">Count (NO. of Kilos )</th>
+      <th scope="col">Price per Kg  (Rs.)</th>
+      
+      <th scope="col">IMAGE</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for recipi in stores_veges_all %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{recipi.vege_name}}</td>
+      <td>{{recipi.vege_descr}}</td>
+      <td>{{recipi.selected_category}}</td>
+      <td>{{recipi.vege_price}}</td>
+      <td>{{recipi.vege_count}}</td>
+       <td><img src="/media/{{recipi.vege_imag}}" alt="" style="width: 100px;" height="100">
+
+       </td>
+       <td>
+       <a href ="/update_vege/{{recipi.id}}" class="btn btn-success m-2 ">UPDATE </button></a></td>
+       <td>
+       <a href ="/delete_vege/{{recipi.id}}" class="btn btn-danger m-2">DELETE </button></a></td>
+
+
+    </tr>
+      
+    {% endfor %}
+  </tbody>
+</table>
+
+
+{%endblock%}

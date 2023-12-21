@@ -1,0 +1,35 @@
+{% extends "req.html" %}
+{%block start%}
+{{homelist}}
+
+
+
+
+<div class="product-container">
+    <!--box---------->
+    {% for recipi in homelist %}
+    <div class="product-box">
+      <img src="/media/{{recipi.vege_imag}}" alt="" style="width: 200px;">
+        <strong>{{fruitlist.vege_name}}</strong>
+
+        <span class="quantity">{{recipi.vege_descr}}</span>
+        <span class="quantity">{{recipi.vege_count}}</span>
+        <span class="price">{{recipi.vege_price}}</span>
+        <!--cart-btn------->
+        <a href="#" class="cart-btn">
+            <i class="fas fa-shopping-bag"></i> Add Cart
+        </a>
+        <!--like-btn------->
+        <a href="#" class="like-btn">
+            <i class="far fa-heart"></i>
+        </a>
+    </div>
+    {% endfor %}
+    <!--box---------->
+    
+</div>
+
+
+
+
+{%endblock%}

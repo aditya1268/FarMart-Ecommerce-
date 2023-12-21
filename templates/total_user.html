@@ -1,0 +1,34 @@
+{% extends "req.html" %}
+{%block start%}
+{% csrf_token %}
+
+{{stores_all}}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">SR. No</th>
+      <th scope="col">store NAME</th>
+      <th scope="col">RECIPIE DESCRI</th>
+      <th scope="col">IMAGE</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for use in stores_all %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{use.store1_name}}</td>
+      <td>{{use.store_username}}</td>
+      <td>{{use.store_password}}</td>
+       </td>
+       <!-- <td>
+        <a href ="/delete_recipi/{{recipi.id}}" class="btn btn-danger m-2">DELETE </button></a>
+        <a href ="/update_recipie/{{recipi.id}}" class="btn btn-success">UPDATE </button></a></td>
+           -->
+        </tr>
+      
+    {% endfor %}
+  </tbody>
+</table>
+
+
+{%endblock%}

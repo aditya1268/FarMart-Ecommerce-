@@ -1,0 +1,25 @@
+{% extends "req.html" %}
+{% block start %}
+    {% csrf_token %}
+
+    <div class="product-container">
+        <!-- Box -->
+        {% for recipi in stores_veges_all %}
+            <div class="product-box">
+                <img src="/media/{{ recipi.vege_imag }}" alt="" style="width: 200px;">
+                <strong>{{ recipi.vege_name }}</strong>
+                <span class="quantity">Available Quantity: {{ recipi.vege_count }} KG</span>
+                <span class="price">{{ recipi.vege_price }}</span>
+                <!-- Cart button -->
+                <a href="#" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add to Cart
+                </a>
+                <!-- Like button -->
+                <a href="#" class="like-btn">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+        {% endfor %}
+        <!-- End of Box -->
+    </div>
+{% endblock %}

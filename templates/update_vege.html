@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <title>{{page}}</title>
+
+</head>
+<body>
+<div class ="container mt-5" >
+
+    <form class="col-6 mx-auto card p-3 shadow-lg" method ="post" enctype="multipart/form-data">
+        {% csrf_token %}
+      <h2>UPDATE RECIPIE</h2>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Vege name</label>
+          <input name="vege_name" value="{{recipie.vege_name}}" type="text" required class="form-control" >
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Vegetables description </label>
+          <textarea name="vege_descr" required class='form-control'> {{recipie.vege_descr}}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Recipie image </label>
+            <input name="vege_imag" type="file" class="form-control" >
+          
+        </div>
+        <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Available Quantity </label>
+              <textarea name="vege_count" type="number" required class='form-control'></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Selling Price per Kilos </label>
+              <textarea name="vege_price" type="number" required class='form-control'></textarea>
+            </div>
+        <div class="mb-3">
+            <input type="radio"class="form-check-input" id="vegetables" name="category" value="vegetables"checked>
+      <label for="vegetables"class="form-check-label">Vegetables</label><br>
+
+      <input type="radio" class="form-check-input"id="fruits" name="category" value="fruits"checked>
+      <label for="fruits"class="form-check-label">Fruits</label><br>
+
+      <input type="radio" class="form-check-input"id="flowers" name="category" value="flowers"checked>
+      <label for="flowers"class="form-check-label">Flowers</label><br>
+
+      <input type="radio" class="form-check-input"id="home_products" name="category" value="home_products" checked>
+      <label for="home_products" class="form-check-label">Home Products</label><br>
+
+          </div>
+        
+          
+       
+        <button type="submit" class="btn btn-success">Update Recipie </button>
+      </form>
+</div>
+
+</body>
+</html>

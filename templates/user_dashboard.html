@@ -1,0 +1,19 @@
+{% extends "req.html" %}
+{%block start%}
+
+<div class="container">
+    <h1 class="mt-4">Welcome, {{ user_details.username }}</h1>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Details:</h5>
+            <p class="card-text">Username: {{ user_details.username }}</p>
+            <p class="card-text">Name: {{ user_details.name }}</p>
+            <p class="card-text">Address: {{ user_details.address }}</p>
+            <p class="card-text">Age: {{ user_details.age }}</p>
+            <p class="card-text">Phone Number: {{ user_details.phone_number }}</p>
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}

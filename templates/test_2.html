@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Category Selection</title>
+</head>
+<body>
+    <form action="/process_category/" method="post">
+        {% csrf_token %}
+        <input type="radio" id="vegetables" name="category" value="vegetables">
+        <label for="vegetables">Vegetables</label><br>
+
+        <input type="radio" id="fruits" name="category" value="fruits">
+        <label for="fruits">Fruits</label><br>
+
+        <input type="radio" id="flowers" name="category" value="flowers">
+        <label for="flowers">Flowers</label><br>
+
+        <input type="radio" id="home_products" name="category" value="home_products">
+        <label for="home_products">Home Products</label><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
